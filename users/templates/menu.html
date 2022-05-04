@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<div class="nav-wrap">
+    <div class="container nav desktop-nav">
+        <ul class="wsite-menu-default">
+            {% if user.is_superuser %}
+            <li class="wsite-menu-item-wrap">
+                <a class="wsite-menu-item" href="{% url 'admin:index' %}">Admin</a>
+            </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li id="active" class="wsite-menu-item-wrap">
+                <a class="wsite-menu-item" href="{% url 'dashboard' %}">Dashboard</a>
+            </li>
+            <li class="wsite-menu-item-wrap">
+                <a class="wsite-menu-item" href="{% url 'password_change' %}">Change Password</a>
+            </li>
+            <li class="wsite-menu-item-wrap">
+                <a class="wsite-menu-item" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li id="active" class="wsite-menu-item-wrap">
+                <a class="wsite-menu-item" href="{% url 'dashboard' %}">Dashboard</a>
+            </li>
+            <li class="wsite-menu-item-wrap">
+                <a class="wsite-menu-item" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>

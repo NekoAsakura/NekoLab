@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Register</h3>
+                    <p>Fill in the data below.</p>
+                    <form class="requires-validation" method="post">
+                        {% csrf_token %}
+                        {{form}}
+                        <div class="form-button mt-4">
+                            <button id="submit" type="submit" class="btn-primary btn-block">Register</button>
+                        </div>
+                    </form>
+                    <a href="{% url 'login' %}">Back to login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

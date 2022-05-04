@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'menu.html' %}
+
+<div>
+    <h3>Hello, {{ user.username|default:'Guest' }}!</h3>
+</div>
+
+{% endblock %}
